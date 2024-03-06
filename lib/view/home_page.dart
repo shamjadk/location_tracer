@@ -18,6 +18,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Container(
+              padding: const EdgeInsets.only(bottom: 24),
               color: const Color(0xff333333),
               child: Column(
                 children: [
@@ -29,17 +30,17 @@ class HomePage extends StatelessWidget {
                   ButtonWIdget(
                     buttonName: 'Request Notification Permission',
                     onPressed: () {},
-                    buttonColor: const Color(0xFF2f80ed),
+                    buttonColor: const Color(0xFFf2c94c),
                   ),
                   ButtonWIdget(
                     buttonName: 'Start Location Update',
                     onPressed: () {},
-                    buttonColor: const Color(0xFF2f80ed),
+                    buttonColor: const Color(0xFF27ae60),
                   ),
                   ButtonWIdget(
                     buttonName: 'Stop Location Update',
                     onPressed: () {},
-                    buttonColor: const Color(0xFF2f80ed),
+                    buttonColor: const Color(0xFFeb5757),
                   ),
                 ],
               ),
