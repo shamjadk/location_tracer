@@ -30,7 +30,7 @@ class HomePage extends ConsumerWidget {
                 physics: const ClampingScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 500, mainAxisExtent: 65),
+                    maxCrossAxisExtent: 430, mainAxisExtent: 65),
                 children: [
                   ButtonWIdget(
                     buttonName: 'Request Location Permission',
@@ -85,10 +85,10 @@ class HomePage extends ConsumerWidget {
                                         AwesomeNotifications()
                                             .createNotification(
                                           content: NotificationContent(
-                                            id: 10,
+                                            id: 1,
                                             channelKey: 'location-update',
                                             actionType: ActionType.Default,
-                                            title: 'Location update started',
+                                            title: 'Location updating started',
                                           ),
                                         );
                                         Navigator.pop(context);
@@ -105,8 +105,7 @@ class HomePage extends ConsumerWidget {
                               builder: ((context) {
                                 return const AlertDialog(
                                   title: Text('Alert'),
-                                  content:
-                                      Text('Place Enable Location permission'),
+                                  content: Text('Enable Location permission'),
                                 );
                               }),
                             ));
@@ -120,7 +119,7 @@ class HomePage extends ConsumerWidget {
                       ref.read(locationProvider.notifier).stopLocationTracing();
                       AwesomeNotifications().createNotification(
                         content: NotificationContent(
-                          id: 11,
+                          id: 2,
                           channelKey: 'location-update',
                           actionType: ActionType.Default,
                           title: 'Location updating stoped',
@@ -136,7 +135,7 @@ class HomePage extends ConsumerWidget {
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 500, mainAxisExtent: 90),
+                    maxCrossAxisExtent: 450, mainAxisExtent: 90),
                 physics: const ClampingScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: ref.watch(locationProvider).locations.length,
@@ -145,8 +144,10 @@ class HomePage extends ConsumerWidget {
                   return Container(
                     margin:
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    padding: const EdgeInsets.only(
-                        left: 8, right: 56, top: 8, bottom: 8),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 8,
+                      horizontal: 8,
+                    ),
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
@@ -167,13 +168,16 @@ class HomePage extends ConsumerWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Lat :${data.latitude.toStringAsFixed(3)}",
+                              "Lat :${data.latitude.toStringAsFixed(1)}",
+                              style: const TextStyle(fontSize: 12),
                             ),
                             Text(
-                              "Lng :${data.longitude.toStringAsFixed(3)}",
+                              "Lng :${data.longitude.toStringAsFixed(1)}",
+                              style: const TextStyle(fontSize: 12),
                             ),
                             Text(
-                              "Speed : ${data.speed.toStringAsFixed(0)}m",
+                              "Speed : ${data.speed.toStringAsFixed(1)}m",
+                              style: const TextStyle(fontSize: 12),
                             )
                           ],
                         )
